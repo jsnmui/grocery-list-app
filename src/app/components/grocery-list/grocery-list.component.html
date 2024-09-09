@@ -1,0 +1,16 @@
+<div class="grocery-list-container">
+    <form (ngSubmit)="addItem()">
+        <input type="text" [(ngModel)]="newItem" [ngModelOptions]="{standalone: true}"placeholder="Enter grocery item">
+      <button type="submit">Add Item</button>
+    </form>
+  
+    <ul>
+      <li *ngFor="let item of groceryItems">
+        {{ item }}
+        <button (click)="removeItem(item)">Remove</button>
+      </li>
+    </ul>
+  
+    <p *ngIf="groceryItems.length === 0">Your grocery list is empty.</p>
+  </div>
+  
